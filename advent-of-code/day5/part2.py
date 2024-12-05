@@ -2,7 +2,7 @@ def get_sum_of_middle_page_of_incorrect_instruction_sequences(input_file):
     incorrect_instructions = get_rearranged_incorrect_instruction_sequences(input_file)
     sum = 0
     for instruction in incorrect_instructions:
-        sum += instruction[int(len(instruction)/2)]
+        sum += instruction[len(instruction)//2]
     
     return sum
 
