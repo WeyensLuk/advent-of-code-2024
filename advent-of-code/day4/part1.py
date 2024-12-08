@@ -1,3 +1,5 @@
+from helpers.coordinate import Coordinate
+
 def find_all_occurrences_of_xmas(input_file):
     wordsearch = read_wordsearch_from_file(input_file)
     xmas = "XMAS"
@@ -7,7 +9,7 @@ def find_all_occurrences_of_xmas(input_file):
 def find_all_occurrences(wordsearch, word):
     occurrences = 0
     start_positions = find_all_start_positions(word[0], wordsearch)
-    directions = [Coordinate.left(), Coordinate.right(), Coordinate.down(), Coordinate.up(), Coordinate.up_left(), Coordinate.up_right(), Coordinate.down_left(), Coordinate.down_right()]
+    directions = [Coordinate.west(), Coordinate.east(), Coordinate.south(), Coordinate.up(), Coordinate.northwest(), Coordinate.northeast(), Coordinate.southwest(), Coordinate.southeast()]
 
     for position in start_positions:
         for direction in directions:
@@ -42,40 +44,3 @@ def read_wordsearch_from_file(input_filename):
     for line in lines:
         wordsearch.append(line)
     return wordsearch
-
-class Coordinate:
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
-
-    @classmethod
-    def left(cls):
-        return Coordinate(-1, 0)
-    
-    @classmethod
-    def right(cls):
-        return Coordinate(1, 0)
-    
-    @classmethod
-    def up(cls):
-        return Coordinate(0, -1)
-
-    @classmethod
-    def down(cls):
-        return Coordinate(0, 1)
-    
-    @classmethod
-    def up_left(cls):
-        return Coordinate(-1, -1)
-    
-    @classmethod
-    def up_right(cls):
-        return Coordinate(1, -1)
-    
-    @classmethod
-    def down_left(cls):
-        return Coordinate(-1, 1)
-    
-    @classmethod
-    def down_right(cls):
-        return Coordinate(1, 1)
