@@ -27,42 +27,22 @@ class Coordinate:
         return Coordinate(self.x * -1, self.y * -1)
 
     def rotate_90degrees_clockwise(self):
-        if self == Coordinate.north(): return Coordinate.east()
-        if self == Coordinate.east(): return Coordinate.south()
-        if self == Coordinate.south(): return Coordinate.west()
-        if self == Coordinate.west(): return Coordinate.north()
+        if self == NORTH: return EAST
+        if self == EAST: return SOUTH
+        if self == SOUTH: return WEST
+        if self == WEST: return NORTH
 
     def as_tuple(self):
         return (self.x, self.y)
 
-    @classmethod
-    def west(cls):
-        return Coordinate(-1, 0)
-    
-    @classmethod
-    def east(cls):
-        return Coordinate(1, 0)
-    
-    @classmethod
-    def north(cls):
-        return Coordinate(0, -1)
+NORTH = Coordinate(0, -1)
+NORTH_EAST = Coordinate(1, -1)
+EAST = Coordinate(1, 0)
+SOUTH_EAST = Coordinate(1, 1)
+SOUTH = Coordinate(0, 1)
+SOUTH_WEST = Coordinate(-1, 1)
+WEST = Coordinate(-1, 0)
+NORTH_WEST = Coordinate(-1, -1)
 
-    @classmethod
-    def south(cls):
-        return Coordinate(0, 1)
-    
-    @classmethod
-    def northwest(cls):
-        return Coordinate(-1, -1)
-    
-    @classmethod
-    def northeast(cls):
-        return Coordinate(1, -1)
-    
-    @classmethod
-    def southwest(cls):
-        return Coordinate(-1, 1)
-    
-    @classmethod
-    def southeast(cls):
-        return Coordinate(1, 1)
+ORTHOGONAL_DIRECTIONS = [NORTH, EAST, SOUTH, WEST]
+ALL_DIRECTIONS = [NORTH, NORTH_EAST, EAST, SOUTH_EAST, SOUTH, SOUTH_WEST, WEST, NORTH_WEST]

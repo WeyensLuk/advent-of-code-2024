@@ -1,4 +1,4 @@
-from helpers.coordinate import Coordinate
+from helpers.coordinate import *
 
 def find_all_occurrences_of_xmas(input_file):
     wordsearch = read_wordsearch_from_file(input_file)
@@ -9,10 +9,9 @@ def find_all_occurrences_of_xmas(input_file):
 def find_all_occurrences(wordsearch, word):
     occurrences = 0
     start_positions = find_all_start_positions(word[0], wordsearch)
-    directions = [Coordinate.west(), Coordinate.east(), Coordinate.south(), Coordinate.up(), Coordinate.northwest(), Coordinate.northeast(), Coordinate.southwest(), Coordinate.southeast()]
 
     for position in start_positions:
-        for direction in directions:
+        for direction in ALL_DIRECTIONS:
             if find(wordsearch, position, word, direction): occurrences+=1
     
     return occurrences

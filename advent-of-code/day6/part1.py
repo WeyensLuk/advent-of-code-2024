@@ -1,4 +1,4 @@
-from helpers.coordinate import Coordinate
+from helpers.coordinate import *
 from helpers.grid import Grid
 import copy
 
@@ -18,10 +18,10 @@ def determine_current_position(grid):
             return coord
 
 def determine_direction(guard):
-    if guard == "^": return Coordinate.up()
-    if guard == "<": return Coordinate.west()
-    if guard == ">": return Coordinate.east()
-    if guard == "v": return Coordinate.south()
+    if guard == "^": return NORTH
+    if guard == "<": return WEST
+    if guard == ">": return EAST
+    if guard == "v": return SOUTH
 
 def follow_guard_path(grid, direction):
     visited_cells = [copy.copy(grid.current_position)]

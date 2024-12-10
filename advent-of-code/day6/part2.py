@@ -1,4 +1,4 @@
-from helpers.coordinate import Coordinate
+from helpers.coordinate import *
 from helpers.grid import Grid
 from copy import copy, deepcopy
 
@@ -18,10 +18,10 @@ def determine_current_position(grid):
             return coord
 
 def determine_direction(guard):
-    if guard == "^": return Coordinate.north()
-    if guard == "<": return Coordinate.west()
-    if guard == ">": return Coordinate.east()
-    if guard == "v": return Coordinate.south()
+    if guard == "^": return NORTH
+    if guard == "<": return WEST
+    if guard == ">": return EAST
+    if guard == "v": return SOUTH
 
 def find_all_possible_patrol_loops(grid, direction):
     extra_obstacle_positions = []
